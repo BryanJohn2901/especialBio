@@ -1,0 +1,11 @@
+# Referências locais (não vão pro deploy)
+G4 _ Para quem quer mais.html
+Venda Todo Santo Dia.html
+ESPECIAL%2010ANOS.pdf
+*_files/
+
+# Sistema
+.DS_Store
+.vercel
+.env*
+!.env.example

@@ -1,0 +1,707 @@
+<!DOCTYPE html>
+<html lang="pt-BR" class="scroll-smooth overflow-x-hidden">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+    <title>Especial de Biomecânica · Turma 10 | +100h de Conteúdo</title>
+    <meta name="description" content="Um dia inteiro de Biomecânica ao vivo + 100 horas de conteúdos e certificações. Ingresso R$10. 23 de agosto de 2026.">
+
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        brand: {
+                            bg: '#001F35',
+                            surface: '#031A26',
+                            primary: '#B9915B',
+                            primaryHover: '#D4A86E',
+                            accent: '#842E20',
+                            success: '#0CC143',
+                            darkgray: '#031A26',
+                            textPrimary: '#F5F4F3',
+                            textSecondary: '#C7C7C7',
+                            textMuted: '#616B85',
+                            soft: '#F3E8D6',
+                            softBorder: '#D4B896',
+                            light: '#F5F4F3',
+                            ink: '#001F35',
+                            body: '#3A4A58',
+                            border: 'rgba(255, 255, 255, 0.08)'
+                        }
+                    },
+                    fontFamily: {
+                        sans: ['Inter', 'ui-sans-serif', 'system-ui', 'sans-serif'],
+                        oswald: ['Oswald', 'sans-serif'],
+                    },
+                    animation: {
+                        'pulse-slow': 'pulse 3s cubic-bezier(0.4, 0, 0.6, 1) infinite',
+                        'shimmer': 'shimmer 2s infinite',
+                    },
+                    keyframes: {
+                        shimmer: {
+                            '100%': { transform: 'translateX(100%)' }
+                        }
+                    }
+                }
+            }
+        }
+    </script>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=Oswald:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+    <style>
+        .glass-strong {
+            background: rgba(3, 26, 38, 0.88);
+            backdrop-filter: blur(16px);
+            -webkit-backdrop-filter: blur(16px);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        @media (min-width: 1024px) and (hover: hover) and (pointer: fine) {
+            body { cursor: none; }
+            a, button, input, select, textarea { cursor: none !important; }
+        }
+
+        .custom-cursor {
+            position: fixed;
+            top: 0; left: 0;
+            width: 32px; height: 32px;
+            border: 1px solid rgba(185, 145, 91, 0.45);
+            border-radius: 50%;
+            pointer-events: none;
+            z-index: 9999;
+            transform: translate(-50%, -50%);
+            transition: width 0.3s, height 0.3s, background-color 0.3s, border-color 0.3s;
+            box-shadow: 0 0 15px rgba(185, 145, 91, 0.12);
+        }
+
+        .custom-cursor-dot {
+            position: fixed;
+            top: 0; left: 0;
+            width: 6px; height: 6px;
+            background-color: #B9915B;
+            border-radius: 50%;
+            pointer-events: none;
+            z-index: 10000;
+            transform: translate(-50%, -50%);
+            box-shadow: 0 0 10px rgba(185, 145, 91, 0.8);
+        }
+
+        .custom-cursor.hover {
+            width: 50px; height: 50px;
+            background-color: rgba(185, 145, 91, 0.12);
+            border-color: #B9915B;
+        }
+
+        ::-webkit-scrollbar { width: 8px; }
+        ::-webkit-scrollbar-track { background: #031A26; }
+        ::-webkit-scrollbar-thumb { background: #B9915B; border-radius: 4px; }
+
+        .faq-item.open .faq-icon { transform: rotate(45deg); }
+        .faq-item.open .faq-answer { max-height: 320px; opacity: 1; padding-top: 0.75rem; }
+        .bonus-mark {
+            background: #B9915B; color: #fff; border-radius: 0.375rem;
+            padding: 0.125rem 0.5rem; box-decoration-break: clone; -webkit-box-decoration-break: clone;
+        }
+    </style>
+</head>
+
+<body class="bg-brand-bg text-brand-textPrimary font-sans antialiased selection:bg-brand-primary selection:text-brand-bg overflow-x-hidden">
+
+    <div id="cursor" class="custom-cursor hidden lg:block"></div>
+    <div id="cursor-dot" class="custom-cursor-dot hidden lg:block"></div>
+
+    <!-- NAV -->
+    <nav class="fixed top-6 left-0 right-0 z-50 px-4 md:px-0 hidden md:block" data-aos="fade-down" data-aos-duration="1000">
+        <div class="container mx-auto max-w-5xl">
+            <div class="relative flex items-center justify-between px-6 py-3 rounded-full glass-strong shadow-[0_8px_32px_0_rgba(0,0,0,0.8)] transition-all duration-300 hover:border-brand-primary/40 hover:shadow-[0_12px_40px_0_rgba(185,145,91,0.15)]">
+
+                <a href="#" class="block hover:opacity-80 transition-opacity duration-300 flex items-center shrink-0">
+                    <img src="img/logoPTA.svg" alt="Personal Trainer Academy" class="h-14 w-auto">
+                </a>
+
+                <div class="hidden md:flex items-center gap-8">
+                    <a href="#metodo" class="text-xs font-bold uppercase tracking-[0.1em] text-gray-400 hover:text-white transition-colors duration-300 relative group">
+                        O Método
+                        <span class="absolute -bottom-2 left-1/2 w-0 h-0.5 bg-brand-primary transition-all duration-300 group-hover:w-full group-hover:left-0"></span>
+                    </a>
+                    <a href="#modulos" class="text-xs font-bold uppercase tracking-[0.1em] text-gray-400 hover:text-white transition-colors duration-300 relative group">
+                        Momentos
+                        <span class="absolute -bottom-2 left-1/2 w-0 h-0.5 bg-brand-primary transition-all duration-300 group-hover:w-full group-hover:left-0"></span>
+                    </a>
+                    <a href="#bonus" class="text-xs font-bold uppercase tracking-[0.1em] text-gray-400 hover:text-white transition-colors duration-300 relative group">
+                        +100h
+                        <span class="absolute -bottom-2 left-1/2 w-0 h-0.5 bg-brand-primary transition-all duration-300 group-hover:w-full group-hover:left-0"></span>
+                    </a>
+                    <a href="#faq" class="text-xs font-bold uppercase tracking-[0.1em] text-gray-400 hover:text-white transition-colors duration-300 relative group">
+                        FAQ
+                        <span class="absolute -bottom-2 left-1/2 w-0 h-0.5 bg-brand-primary transition-all duration-300 group-hover:w-full group-hover:left-0"></span>
+                    </a>
+                </div>
+
+                <button type="button" onclick="abrirPopup()" class="group relative inline-flex items-center justify-center overflow-hidden rounded-xl bg-brand-primary hover:bg-brand-primaryHover px-8 py-3.5 transition-all duration-300 shadow-[0_0_30px_rgba(185,145,91,0.4)] hover:shadow-[0_0_50px_rgba(185,145,91,0.6)] hover:-translate-y-0.5 cursor-pointer border-0 shrink-0">
+                    <div class="absolute inset-0 w-full h-full bg-gradient-to-r from-transparent via-white/20 to-transparent -translate-x-full group-hover:animate-[shimmer_1.5s_infinite]"></div>
+                    <span class="relative text-xs font-bold uppercase tracking-[0.2em] text-brand-bg">Inscreva-se</span>
+                </button>
+            </div>
+        </div>
+    </nav>
+
+    <!-- HERO -->
+    <section class="relative min-h-screen flex items-center pt-28 pb-20 overflow-hidden">
+        <div class="absolute inset-0 z-0">
+            <img src="https://images.unsplash.com/photo-1518611012118-696072aa579a?auto=format&fit=crop&w=1920&q=80" alt="Movimento e biomecânica" class="w-full h-full object-cover opacity-35">
+            <div class="absolute inset-0 bg-gradient-to-b from-brand-bg/75 via-brand-bg/88 to-brand-bg"></div>
+        </div>
+        <div class="absolute top-1/4 -left-32 w-96 h-96 bg-brand-primary/25 rounded-full blur-[120px] pointer-events-none z-0"></div>
+        <div class="absolute bottom-1/3 -right-24 w-80 h-80 bg-brand-accent/25 rounded-full blur-[120px] pointer-events-none z-0"></div>
+
+        <div class="container mx-auto px-6 relative z-10 max-w-6xl">
+            <div class="max-w-3xl" data-aos="fade-up">
+                <img src="img/branca%201.svg" alt="Personal Trainer Academy" class="h-12 md:h-14 w-auto mb-6">
+                <h1 class="font-oswald text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-bold uppercase leading-[1.05] text-white mb-6">
+                    Um dia inteiro de Biomecânica.
+                    <span class="text-transparent bg-clip-text bg-gradient-to-r from-brand-primary to-brand-primaryHover">Ao vivo. Na prática.</span>
+                </h1>
+
+                <p class="text-brand-textSecondary text-lg md:text-xl leading-relaxed mb-6 max-w-2xl">
+                    No dia 23 de agosto, André Albuquerque e convidados especiais se reúnem para celebrar a chegada da 10ª Turma com muita ciência, movimento e Biomecânica aplicada. E ainda leve +100 horas de conteúdos de Biomecânica.
+                </p>
+
+                <div class="flex flex-wrap gap-3 mb-10 text-sm text-brand-textSecondary">
+                    <span class="inline-flex items-center gap-2 px-3 py-2 rounded-lg bg-white/5 border border-white/10"><i class="fas fa-calendar-day text-brand-primary"></i> 23 AGO 2026</span>
+                    <span class="inline-flex items-center gap-2 px-3 py-2 rounded-lg bg-white/5 border border-white/10"><i class="fas fa-broadcast-tower text-brand-primary"></i> Ao vivo</span>
+                    <span class="inline-flex items-center gap-2 px-3 py-2 rounded-lg bg-white/5 border border-white/10"><i class="fas fa-clock text-brand-primary"></i> +100h</span>
+                    <span class="inline-flex items-center gap-2 px-3 py-2 rounded-lg bg-white/5 border border-white/10"><i class="fas fa-certificate text-brand-primary"></i> Certificado</span>
+                </div>
+
+                <button type="button" onclick="abrirPopup()" class="group relative inline-flex items-center justify-center overflow-hidden rounded-xl bg-brand-primary hover:bg-brand-primaryHover text-brand-bg font-bold uppercase tracking-[0.12em] py-5 px-10 transition-all duration-300 shadow-[0_0_40px_rgba(185,145,91,0.45)] hover:shadow-[0_0_60px_rgba(185,145,91,0.65)] hover:-translate-y-1">
+                    <div class="absolute inset-0 w-full h-full bg-gradient-to-r from-transparent via-white/25 to-transparent -translate-x-full group-hover:animate-[shimmer_1.5s_infinite]"></div>
+                    <span class="relative">Garantir meu ingresso por R$10</span>
+                </button>
+            </div>
+        </div>
+    </section>
+
+    <!-- BONUS — estilo VTSD (light break) -->
+    <section id="bonus" class="relative bg-brand-light text-brand-ink py-16 lg:py-24 overflow-hidden">
+        <div class="max-w-[1216px] mx-auto px-4 lg:px-0">
+            <div class="flex flex-col items-center text-center gap-6 max-w-[900px] mx-auto mb-12" data-aos="fade-up">
+                <div class="flex w-fit items-center gap-2 rounded-full border border-brand-softBorder bg-brand-soft px-4 py-2">
+                    <span class="font-bold text-[12px] tracking-[0.12em] text-brand-primary uppercase whitespace-nowrap">E o evento é só o começo</span>
+                </div>
+                <h2 class="text-[28px] lg:text-[46px] font-extrabold leading-[1.12] tracking-[-0.02em] text-brand-ink">
+                    Seu ingresso também libera <span class="text-brand-primary">+100 horas</span> de conteúdos
+                </h2>
+                <p class="text-lg lg:text-xl font-semibold leading-[1.45] text-brand-ink max-w-[592px]">
+                    Biomecânica e certificações para você continuar se aprofundando — tudo incluso no ingresso de R$10.
+                </p>
+                <p class="text-base lg:text-lg font-semibold leading-[1.8] max-w-[640px]">
+                    <span class="bonus-mark">+100h de conteúdos · Joelho · Ombro · Coluna · Certificado</span>
+                </p>
+            </div>
+
+            <div class="grid lg:grid-cols-2 gap-8 lg:gap-12 items-center mb-12" data-aos="fade-up" id="metodo">
+                <div>
+                    <img src="https://images.unsplash.com/photo-1434030216411-0b793f4b4173?auto=format&fit=crop&w=1100&q=80" alt="Conteúdos de biomecânica" class="w-full h-[320px] lg:h-[420px] object-cover rounded-[20px] border border-[#eae7f1]">
+                </div>
+                <div class="text-left">
+                    <div class="bg-brand-soft border-l-[5px] border-brand-primary rounded-r-[14px] px-[26px] py-[22px] mb-6">
+                        <p class="font-bold text-[19px] leading-[1.55] text-brand-ink">
+                            O Especial é o ponto de partida. Os conteúdos e as certificações são o aprofundamento.
+                        </p>
+                    </div>
+                    <p class="text-[17px] leading-[1.65] text-brand-body mb-4">
+                        Com o ingresso de R$10 você entra no evento ao vivo e ainda libera uma trilha completa para continuar estudando biomecânica aplicada.
+                    </p>
+                    <p class="text-[17px] leading-[1.65] text-brand-body mb-8">
+                        Do básico ao avançado — com foco em movimento, correção e aplicação prática.
+                    </p>
+                    <button type="button" onclick="abrirPopup()" class="inline-flex items-center justify-center rounded-full bg-brand-ink hover:bg-[#031A26] text-white font-bold uppercase tracking-wide text-sm px-8 py-4 transition-colors">
+                        Garantir meu ingresso por R$10
+                    </button>
+                </div>
+            </div>
+
+            <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-5" data-aos="fade-up">
+                <div class="bg-white border border-[#eae7f1] rounded-[20px] p-7 text-left">
+                    <p class="font-bold text-[12px] tracking-[0.12em] text-brand-primary uppercase mb-3">Bônus 01</p>
+                    <h3 class="font-extrabold text-lg text-brand-ink mb-2 leading-snug">Biomecânica na Prática</h3>
+                    <p class="text-[15px] leading-relaxed text-brand-body">+100 horas de conteúdo, do básico ao avançado, sobre biomecânica aplicada ao exercício.</p>
+                </div>
+                <div class="bg-white border border-[#eae7f1] rounded-[20px] p-7 text-left">
+                    <p class="font-bold text-[12px] tracking-[0.12em] text-brand-primary uppercase mb-3">Bônus 02</p>
+                    <h3 class="font-extrabold text-lg text-brand-ink mb-2 leading-snug">Certificação Joelho</h3>
+                    <p class="text-[15px] leading-relaxed text-brand-body">Biomecânica, exercícios, execução, ajustes e aplicação prática.</p>
+                </div>
+                <div class="bg-white border border-[#eae7f1] rounded-[20px] p-7 text-left">
+                    <p class="font-bold text-[12px] tracking-[0.12em] text-brand-primary uppercase mb-3">Bônus 03</p>
+                    <h3 class="font-extrabold text-lg text-brand-ink mb-2 leading-snug">Certificação Ombro</h3>
+                    <p class="text-[15px] leading-relaxed text-brand-body">Movimento, exercícios e estratégias aplicadas ao complexo do ombro.</p>
+                </div>
+                <div class="bg-white border border-[#eae7f1] rounded-[20px] p-7 text-left">
+                    <p class="font-bold text-[12px] tracking-[0.12em] text-brand-primary uppercase mb-3">Bônus 04</p>
+                    <h3 class="font-extrabold text-lg text-brand-ink mb-2 leading-snug">Certificação Coluna</h3>
+                    <p class="text-[15px] leading-relaxed text-brand-body">Estrutura, função, movimento e aplicação ao treinamento.</p>
+                </div>
+                <div class="bg-white border border-[#eae7f1] rounded-[20px] p-7 text-left md:col-span-2">
+                    <p class="font-bold text-[12px] tracking-[0.12em] text-brand-primary uppercase mb-3">Bônus 05</p>
+                    <h3 class="font-extrabold text-lg text-brand-ink mb-2 leading-snug">Certificado de Participação</h3>
+                    <p class="text-[15px] leading-relaxed text-brand-body">Participe do Especial e receba seu certificado. Tudo incluso no ingresso de R$10.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 4 MOMENTOS -->
+    <section id="modulos" class="relative py-24 bg-brand-surface/50">
+        <div class="container mx-auto px-6 max-w-6xl">
+            <div class="grid lg:grid-cols-2 gap-12 items-center mb-12">
+                <div data-aos="fade-right">
+                    <p class="text-brand-primary font-sans text-xs font-bold uppercase tracking-[0.2em] mb-3">Programação</p>
+                    <h2 class="font-oswald text-3xl md:text-5xl font-bold uppercase text-white mb-5">Um dia inteiro. Quatro grandes momentos.</h2>
+                    <p class="text-brand-textSecondary text-lg mb-6">23 de agosto de 2026 · ao vivo · online</p>
+                    <img src="https://images.unsplash.com/photo-1576678927484-cc907957088c?auto=format&fit=crop&w=1100&q=80" alt="Treinamento prático" class="rounded-3xl border border-white/10 w-full h-72 object-cover">
+                </div>
+                <div class="space-y-4" data-aos="fade-left">
+                    <div class="p-6 rounded-2xl bg-white/5 border border-white/10 hover:border-brand-primary/40 transition-all flex gap-5">
+                        <div class="font-oswald text-3xl font-bold text-brand-primary shrink-0">01</div>
+                        <div>
+                            <h3 class="font-bold text-white mb-1">Biomecânica Aplicada ao Treino</h3>
+                            <p class="text-sm text-brand-textSecondary">Fundamentos essenciais aplicados aos exercícios.</p>
+                        </div>
+                    </div>
+                    <div class="p-6 rounded-2xl bg-white/5 border border-white/10 hover:border-brand-primary/40 transition-all flex gap-5">
+                        <div class="font-oswald text-3xl font-bold text-brand-primary shrink-0">02</div>
+                        <div>
+                            <h3 class="font-bold text-white mb-1">Movimento na Prática</h3>
+                            <p class="text-sm text-brand-textSecondary">Análises, demonstrações e ajustes ao vivo.</p>
+                        </div>
+                    </div>
+                    <div class="p-6 rounded-2xl bg-white/5 border border-white/10 hover:border-brand-primary/40 transition-all flex gap-5">
+                        <div class="font-oswald text-3xl font-bold text-brand-primary shrink-0">03</div>
+                        <div>
+                            <h3 class="font-bold text-white mb-1">Convidados Especiais</h3>
+                            <p class="text-sm text-brand-textSecondary">Ciência, experiência profissional e casos reais.</p>
+                        </div>
+                    </div>
+                    <div class="p-6 rounded-2xl bg-white/5 border border-brand-primary/30 hover:border-brand-primary/50 transition-all flex gap-5">
+                        <div class="font-oswald text-3xl font-bold text-brand-primary shrink-0">04</div>
+                        <div>
+                            <h3 class="font-bold text-white mb-1">Especial Turma 10</h3>
+                            <p class="text-sm text-brand-textSecondary">Celebração da chegada e abertura oficial da 10ª Turma da Pós-Graduação em Biomecânica.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- QUEM ESTARÁ COM VOCÊ -->
+    <section class="relative py-24">
+        <div class="container mx-auto px-6 max-w-6xl">
+            <div class="text-center max-w-3xl mx-auto mb-12" data-aos="fade-up">
+                <p class="text-brand-primary font-sans text-xs font-bold uppercase tracking-[0.2em] mb-3">Quem estará com você</p>
+                <h2 class="font-oswald text-3xl md:text-5xl font-bold uppercase text-white">Ciência transformada em aplicação</h2>
+            </div>
+
+            <div class="grid lg:grid-cols-5 gap-8 items-center mb-12" data-aos="fade-up">
+                <div class="lg:col-span-2 relative">
+                    <div class="absolute inset-0 bg-brand-primary/20 rounded-3xl blur-2xl"></div>
+                    <img src="https://images.unsplash.com/photo-1594381898411-846e7d193583?auto=format&fit=crop&w=900&q=80" alt="André Albuquerque" class="relative rounded-3xl border border-white/10 w-full h-[400px] object-cover">
+                </div>
+                <div class="lg:col-span-3">
+                    <h3 class="font-oswald text-3xl font-bold uppercase text-white mb-2">André Albuquerque</h3>
+                    <p class="text-brand-primary text-sm font-semibold uppercase tracking-widest mb-6">Mestre em Biomecânica · Professor · Autor · CEO da Personal Trainer Academy</p>
+                    <p class="text-brand-textSecondary leading-relaxed mb-8">Uma trajetória dedicada a transformar ciência em aplicação prática.</p>
+                    <div class="grid grid-cols-2 sm:grid-cols-3 gap-4">
+                        <div class="p-4 rounded-2xl bg-white/5 border border-white/10">
+                            <div class="font-oswald text-2xl font-bold text-brand-primary">+20 mil</div>
+                            <div class="text-xs text-brand-textMuted mt-1">horas de estudo</div>
+                        </div>
+                        <div class="p-4 rounded-2xl bg-white/5 border border-white/10">
+                            <div class="font-oswald text-2xl font-bold text-brand-primary">+4 mil</div>
+                            <div class="text-xs text-brand-textMuted mt-1">artigos científicos</div>
+                        </div>
+                        <div class="p-4 rounded-2xl bg-white/5 border border-white/10">
+                            <div class="font-oswald text-2xl font-bold text-brand-primary">+3 mil</div>
+                            <div class="text-xs text-brand-textMuted mt-1">vídeos publicados</div>
+                        </div>
+                        <div class="p-4 rounded-2xl bg-white/5 border border-white/10">
+                            <div class="font-oswald text-2xl font-bold text-brand-primary">+500</div>
+                            <div class="text-xs text-brand-textMuted mt-1">palestras</div>
+                        </div>
+                        <div class="p-4 rounded-2xl bg-white/5 border border-white/10">
+                            <div class="font-oswald text-2xl font-bold text-brand-primary">3</div>
+                            <div class="text-xs text-brand-textMuted mt-1">livros publicados</div>
+                        </div>
+                        <div class="p-4 rounded-2xl bg-white/5 border border-white/10">
+                            <div class="font-oswald text-2xl font-bold text-brand-primary">10</div>
+                            <div class="text-xs text-brand-textMuted mt-1">turmas da Pós</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="grid md:grid-cols-2 gap-6" data-aos="fade-up">
+                <div class="p-7 rounded-3xl bg-white/5 border border-white/10">
+                    <div class="text-brand-primary text-xs font-bold uppercase tracking-widest mb-3">Convidados especiais</div>
+                    <h4 class="font-bold text-white text-xl mb-2">Convidado 1</h4>
+                    <p class="text-brand-textSecondary text-sm mb-1">Principal credencial a definir</p>
+                    <p class="text-brand-textMuted text-xs">No evento: tema da aula a definir</p>
+                </div>
+                <div class="p-7 rounded-3xl bg-white/5 border border-white/10">
+                    <div class="text-brand-primary text-xs font-bold uppercase tracking-widest mb-3">Convidados especiais</div>
+                    <h4 class="font-bold text-white text-xl mb-2">Convidado 2</h4>
+                    <p class="text-brand-textSecondary text-sm mb-1">Principal credencial a definir</p>
+                    <p class="text-brand-textMuted text-xs">No evento: tema da aula a definir</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- TUDO O QUE VOCÊ RECEBE -->
+    <section id="pricing" class="relative py-24 bg-brand-surface/40 overflow-hidden">
+        <div class="absolute -right-20 top-1/4 w-80 h-80 bg-brand-primary/15 rounded-full blur-[100px] pointer-events-none"></div>
+        <div class="container mx-auto px-6 max-w-5xl relative z-10">
+            <div class="text-center mb-12" data-aos="fade-up">
+                <p class="text-brand-primary font-sans text-xs font-bold uppercase tracking-[0.2em] mb-3">Tudo o que você recebe</p>
+                <h2 class="font-oswald text-3xl md:text-5xl font-bold uppercase text-white">Evento + conteúdos + certificações</h2>
+            </div>
+
+            <div class="grid lg:grid-cols-2 gap-8 items-stretch" data-aos="fade-up">
+                <div class="rounded-3xl border border-white/10 bg-white/5 p-8 md:p-10 backdrop-blur-md">
+                    <ul class="space-y-4 text-brand-textSecondary">
+                        <li class="flex gap-3"><i class="fas fa-check text-brand-primary mt-1 shrink-0"></i><span>Evento online e ao vivo</span></li>
+                        <li class="flex gap-3"><i class="fas fa-check text-brand-primary mt-1 shrink-0"></i><span>André Albuquerque + convidados especiais</span></li>
+                        <li class="flex gap-3"><i class="fas fa-check text-brand-primary mt-1 shrink-0"></i><span>+100 horas de conteúdo · Biomecânica na Prática</span></li>
+                        <li class="flex gap-3"><i class="fas fa-check text-brand-primary mt-1 shrink-0"></i><span>Conteúdos de Joelho</span></li>
+                        <li class="flex gap-3"><i class="fas fa-check text-brand-primary mt-1 shrink-0"></i><span>Conteúdos de Ombro</span></li>
+                        <li class="flex gap-3"><i class="fas fa-check text-brand-primary mt-1 shrink-0"></i><span>Conteúdos de Coluna</span></li>
+                        <li class="flex gap-3"><i class="fas fa-check text-brand-primary mt-1 shrink-0"></i><span>Certificado de participação</span></li>
+                    </ul>
+                </div>
+                <div class="rounded-3xl border border-brand-primary/40 bg-gradient-to-br from-brand-primary/20 via-white/5 to-transparent p-8 md:p-10 text-center flex flex-col justify-center shadow-[0_0_50px_rgba(185,145,91,0.18)]">
+                    <p class="text-brand-primary text-xs font-bold uppercase tracking-[0.2em] mb-3">Tudo isso por</p>
+                    <div class="font-oswald text-6xl md:text-7xl font-bold text-white mb-2">R$10</div>
+                    <p class="text-brand-textSecondary mb-8">Pagamento único</p>
+                    <button type="button" onclick="abrirPopup()" class="inline-flex items-center justify-center rounded-xl bg-brand-primary hover:bg-brand-primaryHover text-brand-bg font-bold uppercase tracking-widest py-4 px-8 transition-all duration-300 shadow-[0_0_30px_rgba(185,145,91,0.45)] hover:-translate-y-0.5">
+                        Garantir meu ingresso por R$10
+                    </button>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- FAQ -->
+    <section id="faq" class="relative py-24">
+        <div class="container mx-auto px-6 max-w-3xl">
+            <div class="text-center mb-12" data-aos="fade-up">
+                <p class="text-brand-primary font-sans text-xs font-bold uppercase tracking-[0.2em] mb-3">Dúvidas frequentes</p>
+                <h2 class="font-oswald text-3xl md:text-5xl font-bold uppercase text-white">FAQ</h2>
+            </div>
+            <div class="space-y-3" data-aos="fade-up">
+                <div class="faq-item rounded-2xl border border-white/10 bg-white/5 px-6 py-5">
+                    <button type="button" class="faq-toggle w-full flex items-center justify-between gap-4 text-left">
+                        <span class="font-semibold text-white">O evento é online?</span>
+                        <i class="fas fa-plus faq-icon text-brand-primary transition-transform"></i>
+                    </button>
+                    <div class="faq-answer max-h-0 overflow-hidden opacity-0 transition-all duration-300 text-brand-textSecondary text-sm leading-relaxed">Sim. O Especial será 100% online e ao vivo.</div>
+                </div>
+                <div class="faq-item rounded-2xl border border-white/10 bg-white/5 px-6 py-5">
+                    <button type="button" class="faq-toggle w-full flex items-center justify-between gap-4 text-left">
+                        <span class="font-semibold text-white">Quando acontece?</span>
+                        <i class="fas fa-plus faq-icon text-brand-primary transition-transform"></i>
+                    </button>
+                    <div class="faq-answer max-h-0 overflow-hidden opacity-0 transition-all duration-300 text-brand-textSecondary text-sm leading-relaxed">No dia 23 de agosto de 2026.</div>
+                </div>
+                <div class="faq-item rounded-2xl border border-white/10 bg-white/5 px-6 py-5">
+                    <button type="button" class="faq-toggle w-full flex items-center justify-between gap-4 text-left">
+                        <span class="font-semibold text-white">O ingresso realmente custa R$10?</span>
+                        <i class="fas fa-plus faq-icon text-brand-primary transition-transform"></i>
+                    </button>
+                    <div class="faq-answer max-h-0 overflow-hidden opacity-0 transition-all duration-300 text-brand-textSecondary text-sm leading-relaxed">Sim. O investimento para participar do Especial é de R$10.</div>
+                </div>
+                <div class="faq-item rounded-2xl border border-white/10 bg-white/5 px-6 py-5">
+                    <button type="button" class="faq-toggle w-full flex items-center justify-between gap-4 text-left">
+                        <span class="font-semibold text-white">As +100 horas estão inclusas?</span>
+                        <i class="fas fa-plus faq-icon text-brand-primary transition-transform"></i>
+                    </button>
+                    <div class="faq-answer max-h-0 overflow-hidden opacity-0 transition-all duration-300 text-brand-textSecondary text-sm leading-relaxed">Sim. Seu ingresso também libera os conteúdos apresentados nesta página.</div>
+                </div>
+                <div class="faq-item rounded-2xl border border-white/10 bg-white/5 px-6 py-5">
+                    <button type="button" class="faq-toggle w-full flex items-center justify-between gap-4 text-left">
+                        <span class="font-semibold text-white">Por quanto tempo terei acesso aos conteúdos?</span>
+                        <i class="fas fa-plus faq-icon text-brand-primary transition-transform"></i>
+                    </button>
+                    <div class="faq-answer max-h-0 overflow-hidden opacity-0 transition-all duration-300 text-brand-textSecondary text-sm leading-relaxed">A definir.</div>
+                </div>
+                <div class="faq-item rounded-2xl border border-white/10 bg-white/5 px-6 py-5">
+                    <button type="button" class="faq-toggle w-full flex items-center justify-between gap-4 text-left">
+                        <span class="font-semibold text-white">Quando receberei o acesso?</span>
+                        <i class="fas fa-plus faq-icon text-brand-primary transition-transform"></i>
+                    </button>
+                    <div class="faq-answer max-h-0 overflow-hidden opacity-0 transition-all duration-300 text-brand-textSecondary text-sm leading-relaxed">A definir.</div>
+                </div>
+                <div class="faq-item rounded-2xl border border-white/10 bg-white/5 px-6 py-5">
+                    <button type="button" class="faq-toggle w-full flex items-center justify-between gap-4 text-left">
+                        <span class="font-semibold text-white">O evento ficará gravado?</span>
+                        <i class="fas fa-plus faq-icon text-brand-primary transition-transform"></i>
+                    </button>
+                    <div class="faq-answer max-h-0 overflow-hidden opacity-0 transition-all duration-300 text-brand-textSecondary text-sm leading-relaxed">A definir.</div>
+                </div>
+                <div class="faq-item rounded-2xl border border-white/10 bg-white/5 px-6 py-5">
+                    <button type="button" class="faq-toggle w-full flex items-center justify-between gap-4 text-left">
+                        <span class="font-semibold text-white">Como recebo o certificado?</span>
+                        <i class="fas fa-plus faq-icon text-brand-primary transition-transform"></i>
+                    </button>
+                    <div class="faq-answer max-h-0 overflow-hidden opacity-0 transition-all duration-300 text-brand-textSecondary text-sm leading-relaxed">A definir.</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA FINAL -->
+    <section class="relative py-28 overflow-hidden">
+        <div class="absolute inset-0">
+            <img src="https://images.unsplash.com/photo-1571019614242-c5c5dee9f50b?auto=format&fit=crop&w=1920&q=80" alt="Biomecânica" class="w-full h-full object-cover opacity-25">
+            <div class="absolute inset-0 bg-gradient-to-t from-brand-bg via-brand-bg/90 to-brand-bg/75"></div>
+        </div>
+        <div class="container mx-auto px-6 max-w-3xl relative z-10 text-center" data-aos="zoom-in">
+            <p class="text-brand-primary text-xs font-bold uppercase tracking-[0.25em] mb-4">Biomecânica</p>
+            <h2 class="font-oswald text-4xl md:text-6xl font-bold uppercase text-white mb-4">23 de agosto de 2026</h2>
+            <p class="text-brand-textSecondary text-lg mb-8">Um dia ao vivo + +100h de conteúdos · Ingresso R$10</p>
+            <button type="button" onclick="abrirPopup()" class="inline-flex items-center justify-center rounded-xl bg-brand-primary hover:bg-brand-primaryHover text-brand-bg font-bold uppercase tracking-widest py-5 px-12 transition-all duration-300 shadow-[0_0_50px_rgba(185,145,91,0.5)] hover:-translate-y-1">
+                Garantir meu ingresso por R$10
+            </button>
+        </div>
+    </section>
+
+    <!-- FOOTER -->
+    <footer class="bg-brand-darkgray border-t border-white/5 pt-16 pb-24 relative z-20">
+        <div class="container mx-auto px-6">
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-12 gap-12 mb-12">
+                <div class="lg:col-span-4 space-y-4">
+                    <a href="#" class="inline-block hover:opacity-80 transition-opacity duration-300 mb-4">
+                        <img src="img/logoPta.svg" alt="LOGO" class="h-10 w-auto">
+                    </a>
+                    <p class="text-brand-textMuted text-sm leading-relaxed max-w-sm">Especial de Biomecânica — Turma 10. Um dia ao vivo de biomecânica prática + +100 horas de conteúdos e certificações.</p>
+                </div>
+                <div class="lg:col-span-2 lg:col-start-7">
+                    <h4 class="text-brand-textSecondary font-bold uppercase tracking-widest text-xs mb-6">Navegação</h4>
+                    <ul class="space-y-3 text-sm text-brand-textMuted">
+                        <li><a href="#metodo" class="hover:text-brand-primary transition-colors duration-200">A Imersão</a></li>
+                        <li><a href="#bonus" class="hover:text-brand-primary transition-colors duration-200">+100h</a></li>
+                        <li><a href="#modulos" class="hover:text-brand-primary transition-colors duration-200">Momentos</a></li>
+                        <li><a href="#pricing" class="hover:text-brand-primary transition-colors duration-200">Ingressos</a></li>
+                    </ul>
+                </div>
+                <div class="lg:col-span-2">
+                    <h4 class="text-brand-textSecondary font-bold uppercase tracking-widest text-xs mb-6">Legal</h4>
+                    <ul class="space-y-3 text-sm text-brand-textMuted">
+                        <li><a href="#" class="hover:text-brand-primary transition-colors duration-200">Termos de Uso</a></li>
+                        <li><a href="#" class="hover:text-brand-primary transition-colors duration-200">Política de Privacidade</a></li>
+                        <li><a href="#" class="hover:text-brand-primary transition-colors duration-200">Aviso Legal</a></li>
+                    </ul>
+                </div>
+                <div class="lg:col-span-2">
+                    <h4 class="text-brand-textSecondary font-bold uppercase tracking-widest text-xs mb-6">Suporte</h4>
+                    <ul class="space-y-3 text-sm text-brand-textMuted">
+                        <li><a href="https://wa.me/5541995150570" class="hover:text-brand-success flex items-center gap-2 transition-colors"><i class="fab fa-whatsapp"></i> WhatsApp Suporte</a></li>
+                        <li><a href="mailto:contato@personaltraineracademy.com.br" class="hover:text-white transition-colors">contato@personaltraineracademy.com.br</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="border-t border-white/5 pt-8 flex flex-col md:flex-row justify-between items-center gap-4">
+                <p class="text-brand-textMuted text-xs">© 2026 Personal Trainer Academy. Todos os direitos reservados.</p>
+                <div class="flex items-center gap-2 text-xs font-bold uppercase tracking-widest text-brand-textMuted">
+                    <span class="w-2 h-2 rounded-full bg-brand-success animate-pulse"></span> Ambiente 100% Seguro
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- POPUP -->
+    <div id="popup-captura" class="fixed inset-0 z-[100] hidden items-center justify-center p-4 bg-black/70 backdrop-blur-sm" aria-hidden="true">
+        <div class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-96 h-96 bg-brand-primary/20 rounded-full blur-[100px] pointer-events-none"></div>
+        <div class="relative bg-brand-bg border border-white/10 rounded-3xl shadow-[0_0_80px_rgba(185,145,91,0.15)] max-w-md w-full p-8 md:p-10">
+            <button type="button" onclick="fecharPopup()" class="absolute top-6 right-6 w-10 h-10 rounded-full bg-white/5 border border-white/10 hover:bg-brand-primary hover:text-brand-bg flex items-center justify-center text-gray-400 transition-all duration-300" aria-label="Fechar">
+                <i class="fas fa-times"></i>
+            </button>
+            <div class="text-center mb-6">
+                <div class="text-brand-primary text-[10px] font-black uppercase tracking-[0.2em] mb-2">Ingresso R$10 · +100h</div>
+                <h3 class="font-black font-oswald text-2xl text-white uppercase tracking-tight mb-2">Garanta sua vaga</h3>
+                <p class="text-base text-brand-textSecondary">Preencha os dados para avançar ao pagamento.</p>
+            </div>
+
+            <form id="form_especial_bio_t10_v2" class="space-y-4 mt-6 popup-form">
+                <div>
+                    <label for="lead-nome" class="block text-sm font-medium text-gray-300 mb-1">Nome</label>
+                    <input type="text" id="lead-nome" name="nome" required placeholder="Seu nome completo" class="w-full px-4 py-3 rounded-lg bg-brand-bg border border-white/10 text-white placeholder-gray-500 focus:border-brand-primary focus:ring-1 focus:ring-brand-primary outline-none transition">
+                </div>
+                <div>
+                    <label for="lead-email" class="block text-sm font-medium text-gray-300 mb-1">Email</label>
+                    <input type="email" id="lead-email" name="email" required placeholder="seu@email.com" class="w-full px-4 py-3 rounded-lg bg-brand-bg border border-white/10 text-white placeholder-gray-500 focus:border-brand-primary focus:ring-1 focus:ring-brand-primary outline-none transition">
+                </div>
+                <div>
+                    <label for="lead-phone" class="block text-sm font-medium text-gray-300 mb-1">Telefone</label>
+                    <div class="flex rounded-lg overflow-hidden border border-white/10 focus-within:border-brand-primary focus-within:ring-1 focus-within:ring-brand-primary bg-brand-bg">
+                        <span class="inline-flex items-center px-4 py-3 bg-brand-primary text-black font-bold select-none shrink-0">+55</span>
+                        <input type="tel" id="lead-phone" name="phone" required placeholder="(11) 99999-9999" maxlength="15" autocomplete="tel" class="flex-1 px-4 py-3 bg-transparent text-white placeholder-gray-500 outline-none min-w-0 mask-telefone">
+                    </div>
+                    <p class="error-msg text-red-400 text-xs mt-1 hidden">Informe o DDD e o número completo.</p>
+                </div>
+                <button type="submit" class="w-full bg-brand-primary text-brand-bg font-sans font-bold py-4 rounded-xl uppercase tracking-widest hover:shadow-[0_0_20px_rgba(185,145,91,0.6)] transition btn-submit mt-2">
+                    Avançar para Pagamento
+                </button>
+            </form>
+        </div>
+    </div>
+
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <script>
+        AOS.init({ once: true, offset: 50, duration: 800 });
+
+        const WEBHOOK_URL = 'https://hook.us1.make.com/bj1q14346ezeybpcqjb9ctea89aoatvn';
+        const REDIRECT_URL = 'https://wa.me/5541995150570';
+        const PRODUTO = 'Especial Biomecânica Turma 10';
+
+        const mqCursor = window.matchMedia('(min-width: 1024px) and (hover: hover) and (pointer: fine)');
+        if (mqCursor.matches) {
+            const cursor = document.getElementById('cursor');
+            const cursorDot = document.getElementById('cursor-dot');
+            if (cursor && cursorDot) {
+                document.addEventListener('mousemove', (e) => {
+                    cursorDot.style.left = e.clientX + 'px';
+                    cursorDot.style.top = e.clientY + 'px';
+                    setTimeout(() => { cursor.style.left = e.clientX + 'px'; cursor.style.top = e.clientY + 'px'; }, 40);
+                });
+                document.querySelectorAll('a, button, input').forEach(el => {
+                    el.addEventListener('mouseenter', () => cursor.classList.add('hover'));
+                    el.addEventListener('mouseleave', () => cursor.classList.remove('hover'));
+                });
+            }
+        }
+
+        const popup = document.getElementById('popup-captura');
+        let scrollYPopup = 0;
+        function abrirPopup() {
+            scrollYPopup = window.scrollY || window.pageYOffset;
+            popup.classList.remove('hidden');
+            popup.classList.add('flex');
+            popup.setAttribute('aria-hidden', 'false');
+            document.body.style.overflow = 'hidden';
+            document.body.style.position = 'fixed';
+            document.body.style.top = '-' + scrollYPopup + 'px';
+            document.body.style.left = '0';
+            document.body.style.right = '0';
+            document.body.style.width = '100%';
+        }
+        function fecharPopup() {
+            popup.classList.add('hidden');
+            popup.classList.remove('flex');
+            popup.setAttribute('aria-hidden', 'true');
+            document.body.style.overflow = '';
+            document.body.style.position = '';
+            document.body.style.top = '';
+            document.body.style.left = '';
+            document.body.style.right = '';
+            document.body.style.width = '';
+            window.scrollTo(0, scrollYPopup);
+        }
+        popup.addEventListener('click', (e) => { if (e.target === popup) fecharPopup(); });
+        document.addEventListener('keydown', (e) => { if (e.key === 'Escape') fecharPopup(); });
+
+        const telInput = document.getElementById('lead-phone');
+        telInput.addEventListener('input', function (e) {
+            let value = e.target.value.replace(/\D/g, '');
+            if (value.startsWith('55') && value.length > 2) value = value.slice(2);
+            value = value.slice(0, 11);
+            let formatado = value;
+            if (value.length > 2) formatado = `(${value.slice(0, 2)}) ` + value.slice(2);
+            if (value.length > 7) formatado = formatado.slice(0, 10) + '-' + formatado.slice(10);
+            e.target.value = formatado;
+            const errorMsg = document.querySelector('.error-msg');
+            if (errorMsg) errorMsg.classList.add('hidden');
+        });
+
+        function obterUTMs() {
+            const params = new URLSearchParams(window.location.search);
+            const utms = {};
+            ['utm_source', 'utm_medium', 'utm_campaign', 'utm_term', 'utm_content'].forEach((key) => {
+                const val = params.get(key);
+                if (val) utms[key] = val;
+            });
+            return utms;
+        }
+
+        document.querySelectorAll('.faq-toggle').forEach((btn) => {
+            btn.addEventListener('click', () => {
+                const item = btn.closest('.faq-item');
+                const wasOpen = item.classList.contains('open');
+                document.querySelectorAll('.faq-item').forEach((i) => i.classList.remove('open'));
+                if (!wasOpen) item.classList.add('open');
+            });
+        });
+
+        document.getElementById('form_especial_bio_t10_v2').addEventListener('submit', async function (e) {
+            e.preventDefault();
+            const btnSubmit = this.querySelector('.btn-submit');
+            const errorMsg = this.querySelector('.error-msg');
+            const rawPhone = telInput.value.replace(/\D/g, '');
+
+            if (rawPhone.length < 10) {
+                errorMsg.classList.remove('hidden');
+                telInput.focus();
+                return;
+            }
+
+            btnSubmit.disabled = true;
+            btnSubmit.innerHTML = '<i class="fas fa-spinner fa-spin mr-2"></i> Processando...';
+
+            const nome = document.getElementById('lead-nome').value.trim();
+            const email = document.getElementById('lead-email').value.trim();
+            const telefone = '+55' + rawPhone;
+            const utms = obterUTMs();
+
+            const payload = {
+                nome,
+                email,
+                telefone,
+                url: window.location.href,
+                produto: PRODUTO,
+                ...utms
+            };
+
+            const qs = new URLSearchParams({
+                nome,
+                email,
+                telefone,
+                produto: PRODUTO,
+                ...utms
+            });
+
+            try {
+                await fetch(WEBHOOK_URL, {
+                    method: 'POST',
+                    headers: { 'Accept': 'application/json', 'Content-Type': 'application/json' },
+                    body: JSON.stringify(payload)
+                });
+            } catch (error) {
+                console.error('Erro no webhook. Redirecionando com fallback.', error);
+            } finally {
+                const msg = `Olá, meu nome é ${nome}. Quero garantir meu ingresso no Especial de Biomecânica Turma 10 (+100h).`;
+                window.location.href = `${REDIRECT_URL}?text=${encodeURIComponent(msg)}&${qs.toString()}`;
+            }
+        });
+    </script>
+</body>
+</html>
