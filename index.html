@@ -62,25 +62,6 @@
             -webkit-backdrop-filter: blur(16px);
             border: 1px solid rgba(255, 255, 255, 0.1);
         }
-        @media (min-width: 1024px) and (hover: hover) and (pointer: fine) {
-            body { cursor: none; }
-            a, button, input, select, textarea { cursor: none !important; }
-        }
-        .custom-cursor {
-            position: fixed; top: 0; left: 0; width: 32px; height: 32px;
-            border: 1px solid rgba(185, 145, 91, 0.45); border-radius: 50%;
-            pointer-events: none; z-index: 9999; transform: translate(-50%, -50%);
-            transition: width 0.3s, height 0.3s, background-color 0.3s, border-color 0.3s;
-            box-shadow: 0 0 15px rgba(185, 145, 91, 0.12);
-        }
-        .custom-cursor-dot {
-            position: fixed; top: 0; left: 0; width: 6px; height: 6px;
-            background-color: #B9915B; border-radius: 50%; pointer-events: none; z-index: 10000;
-            transform: translate(-50%, -50%); box-shadow: 0 0 10px rgba(185, 145, 91, 0.8);
-        }
-        .custom-cursor.hover {
-            width: 50px; height: 50px; background-color: rgba(185, 145, 91, 0.12); border-color: #B9915B;
-        }
         ::-webkit-scrollbar { width: 8px; }
         ::-webkit-scrollbar-track { background: #031A26; }
         ::-webkit-scrollbar-thumb { background: #B9915B; border-radius: 4px; }
@@ -94,9 +75,6 @@
 </head>
 
 <body class="bg-brand-bg text-brand-textPrimary font-sans antialiased selection:bg-brand-primary selection:text-brand-bg overflow-x-hidden">
-
-    <div id="cursor" class="custom-cursor hidden lg:block"></div>
-    <div id="cursor-dot" class="custom-cursor-dot hidden lg:block"></div>
 
     <nav class="fixed top-6 left-0 right-0 z-50 px-4 md:px-0 hidden md:block" data-aos="fade-down" data-aos-duration="1000">
         <div class="container mx-auto max-w-5xl">
@@ -119,16 +97,20 @@
     </nav>
 
     <!-- HERO -->
-    <section class="relative overflow-hidden">
-        <div class="relative z-0">
-            <img src="img/Andre-site-2.png" alt="André Albuquerque" class="hidden md:block w-full h-auto">
-            <img src="img/mobilee.png" alt="André Albuquerque" class="md:hidden w-full h-auto">
-            <div class="absolute inset-x-0 bottom-0 h-24 md:h-40 bg-gradient-to-b from-transparent to-brand-bg pointer-events-none"></div>
+    <section class="relative pb-20 overflow-hidden md:pt-28 md:min-h-screen md:flex md:items-center">
+        <div class="hidden md:block absolute inset-0 z-0">
+            <img src="img/André-site.png" alt="André Albuquerque" class="w-full h-full object-cover">
+        </div>
+        <div class="md:hidden relative z-10">
+            <img src="img/André-site.png" alt="André Albuquerque" class="w-full h-auto block saturate-[0.55] contrast-105">
+            <div class="absolute inset-0 bg-brand-bg/25 pointer-events-none"></div>
+            <div class="absolute inset-x-0 top-0 h-24 bg-gradient-to-b from-brand-bg/70 to-transparent pointer-events-none"></div>
+            <div class="absolute inset-x-0 bottom-0 h-64 bg-gradient-to-b from-transparent via-brand-bg/90 to-brand-bg pointer-events-none"></div>
         </div>
         <div class="hidden md:block absolute top-1/4 -left-32 w-96 h-96 bg-brand-primary/25 rounded-full blur-[120px] pointer-events-none z-0"></div>
         <div class="hidden md:block absolute bottom-1/4 -right-32 w-80 h-80 bg-brand-accent/20 rounded-full blur-[120px] pointer-events-none z-0"></div>
 
-        <div class="container mx-auto px-6 relative z-10 max-w-[1300px] pt-10 pb-20 md:pt-16">
+        <div class="container mx-auto px-6 relative z-10 max-w-[1300px] pt-10 md:pt-0">
             <div class="max-w-3xl mx-auto text-center md:mx-0 md:text-left" data-aos="fade-up">
                 <img src="img/branca%20e%20dourada.svg" alt="Personal Trainer Academy" class="h-12 md:h-14 w-auto mb-6 mx-auto md:mx-0">
                 <h1 class="font-oswald text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-bold uppercase leading-[1.05] text-white mb-6">
@@ -530,26 +512,9 @@
     <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
     <script>
         AOS.init({ once: true, offset: 50, duration: 800 });
-        const WEBHOOK_URL = 'https://hook.us1.make.com/bj1q14346ezeybpcqjb9ctea89aoatvn';
-        const REDIRECT_URL = 'https://wa.me/5541995150570';
+        const WEBHOOK_URL = 'https://hook.us1.make.com/bj1q14346ezeybpcqjb9ctea89aoatvn?produto=EB10';
+        const REDIRECT_URL = 'https://chk.eduzz.com/G92KYJOXWE';
         const PRODUTO = 'Especial Biomecânica Turma 10';
-
-        const mqCursor = window.matchMedia('(min-width: 1024px) and (hover: hover) and (pointer: fine)');
-        if (mqCursor.matches) {
-            const cursor = document.getElementById('cursor');
-            const cursorDot = document.getElementById('cursor-dot');
-            if (cursor && cursorDot) {
-                document.addEventListener('mousemove', (e) => {
-                    cursorDot.style.left = e.clientX + 'px';
-                    cursorDot.style.top = e.clientY + 'px';
-                    setTimeout(() => { cursor.style.left = e.clientX + 'px'; cursor.style.top = e.clientY + 'px'; }, 40);
-                });
-                document.querySelectorAll('a, button, input').forEach(el => {
-                    el.addEventListener('mouseenter', () => cursor.classList.add('hover'));
-                    el.addEventListener('mouseleave', () => cursor.classList.remove('hover'));
-                });
-            }
-        }
 
         const popup = document.getElementById('popup-captura');
         let scrollYPopup = 0;
@@ -616,8 +581,7 @@
             } catch (error) {
                 console.error('Erro no webhook. Redirecionando com fallback.', error);
             } finally {
-                const msg = `Olá, meu nome é ${nome}. Quero garantir meu ingresso no Especial de Biomecânica Turma 10.`;
-                window.location.href = `${REDIRECT_URL}?text=${encodeURIComponent(msg)}&${qs.toString()}`;
+                window.location.href = `${REDIRECT_URL}?${qs.toString()}`;
             }
         });
     </script>
