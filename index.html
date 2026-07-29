@@ -136,10 +136,10 @@
     </section>
 
     <!-- POR QUE R$10 -->
-    <section id="metodo" class="relative py-24 z-10">
+    <section id="metodo" class="relative z-10">
         <div class="container mx-auto px-6 max-w-[1300px]">
-            <div class="grid lg:grid-cols-2 gap-12 items-center">
-                <div data-aos="fade-right">
+            <div class="grid lg:grid-cols-2 gap-12 items-stretch">
+                <div class="py-24 flex flex-col justify-center" data-aos="fade-right">
                     <p class="text-brand-primary font-sans text-xs font-bold uppercase tracking-[0.2em] mb-3">Por que só R$10?</p>
                     <h2 class="font-oswald text-3xl md:text-5xl font-bold uppercase leading-tight text-white mb-6">
                         Um ingresso de R$10 pra comemorar <span class="text-brand-primary">10 turmas</span> de Biomecânica
@@ -151,9 +151,8 @@
                         Garantir meu ingresso por R$10
                     </button>
                 </div>
-                <div class="relative" data-aos="fade-left">
-                    <div class="absolute inset-0 bg-brand-primary/20 rounded-3xl blur-2xl"></div>
-                    <img src="img/100-horas-biomecanica-pratica.webp" alt="+100 horas de conteúdo · Biomecânica na Prática" class="relative rounded-3xl border border-white/10 w-full h-[420px] object-cover">
+                <div class="relative h-72 lg:h-auto" data-aos="fade-left">
+                    <img src="img/Sem-Título-4.png" alt="+100 horas de conteúdo · Biomecânica na Prática" class="absolute inset-0 w-full h-full object-cover">
                 </div>
             </div>
         </div>
@@ -189,13 +188,15 @@
                     <p class="text-brand-textSecondary text-sm">Comprovação de participação no Especial.</p>
                 </div>
             </div>
-            <div class="rounded-3xl border border-brand-primary/40 bg-gradient-to-br from-brand-primary/15 via-white/5 to-transparent p-8 md:p-12 shadow-[0_0_50px_rgba(185,145,91,0.15)] flex flex-col md:flex-row items-center gap-8 text-center md:text-left" data-aos="zoom-in">
-                <img src="img/certificado-participacao.webp" alt="Certificado de participação" class="w-40 h-40 md:w-48 md:h-48 rounded-2xl object-cover shrink-0">
-                <div class="flex flex-col items-center md:items-start">
+            <div class="relative overflow-hidden rounded-3xl border border-brand-primary/40 bg-gradient-to-br from-brand-primary/15 via-white/5 to-transparent shadow-[0_0_50px_rgba(185,145,91,0.15)] flex flex-col md:flex-row items-stretch text-center md:text-left max-w-3xl mx-auto" data-aos="zoom-in">
+                <div class="relative w-full h-56 md:w-72 md:h-auto shrink-0 p-4">
+                    <img src="img/Sem-Título-4 (1).png" alt="Certificado de participação" class="absolute inset-4 w-[calc(100%-2rem)] h-[calc(100%-2rem)] object-cover rounded-2xl">
+                </div>
+                <div class="flex flex-col items-center md:items-start p-8 md:p-12">
                     <p class="text-brand-primary text-xs font-bold uppercase tracking-[0.2em] mb-3">Oferta de comemoração</p>
-                    <h3 class="font-oswald text-3xl md:text-4xl font-bold uppercase text-white mb-2">Ingresso: apenas R$10,00</h3>
+                    <h3 class="font-oswald text-xl sm:text-2xl md:text-3xl font-bold uppercase text-white mb-2">Ingresso: apenas R$10,00</h3>
                     <p class="text-brand-textSecondary mb-8">Dia inteiro + certificado de participação</p>
-                    <button type="button" onclick="abrirPopup()" class="inline-flex w-full sm:w-auto items-center justify-center rounded-xl bg-brand-primary hover:bg-brand-primaryHover text-brand-bg font-bold uppercase tracking-widest py-4 px-10 transition-all duration-300 shadow-[0_0_30px_rgba(185,145,91,0.45)] hover:-translate-y-0.5 active:scale-[0.97]">
+                    <button type="button" onclick="abrirPopup()" class="inline-flex w-full sm:w-auto items-center justify-center whitespace-nowrap rounded-xl bg-brand-primary hover:bg-brand-primaryHover text-brand-bg font-bold uppercase tracking-widest py-4 px-10 transition-all duration-300 shadow-[0_0_30px_rgba(185,145,91,0.45)] hover:-translate-y-0.5 active:scale-[0.97]">
                         Garantir meu ingresso por R$10
                     </button>
                 </div>
@@ -245,7 +246,7 @@
 
             <div class="grid md:grid-cols-3 gap-5" data-aos="fade-up">
                 <div class="bg-white border border-[#eae7f1] rounded-[20px] p-5 flex items-center gap-4 text-left hover:border-brand-primary/40 hover:-translate-y-1 hover:shadow-[0_20px_40px_-15px_rgba(0,0,0,0.15)] transition-all duration-300">
-                    <img src="img/andre-albuquerque-convidados.webp" alt="Acesso ao Especial completo" class="w-24 h-24 rounded-xl object-cover shrink-0">
+                    <div class="w-16 h-16 rounded-xl bg-brand-primary/15 border border-brand-primary/30 flex items-center justify-center text-brand-primary text-2xl shrink-0"><i class="fas fa-user-tie"></i></div>
                     <div>
                         <p class="font-bold text-[12px] tracking-[0.12em] text-brand-primary uppercase mb-2">Bônus 01</p>
                         <h3 class="font-extrabold text-lg text-brand-ink mb-2 leading-snug">Acesso ao Especial completo</h3>
@@ -253,7 +254,7 @@
                     </div>
                 </div>
                 <div class="bg-white border border-[#eae7f1] rounded-[20px] p-5 flex items-center gap-4 text-left hover:border-brand-primary/40 hover:-translate-y-1 hover:shadow-[0_20px_40px_-15px_rgba(0,0,0,0.15)] transition-all duration-300">
-                    <img src="img/certificado-participacao.webp" alt="Certificado de participação" class="w-24 h-24 rounded-xl object-cover object-top shrink-0">
+                    <div class="w-16 h-16 rounded-xl bg-brand-primary/15 border border-brand-primary/30 flex items-center justify-center text-brand-primary text-2xl shrink-0"><i class="fas fa-certificate"></i></div>
                     <div>
                         <p class="font-bold text-[12px] tracking-[0.12em] text-brand-primary uppercase mb-2">Bônus 02</p>
                         <h3 class="font-extrabold text-lg text-brand-ink mb-2 leading-snug">Certificado de participação</h3>
@@ -261,7 +262,7 @@
                     </div>
                 </div>
                 <div class="bg-white border border-[#eae7f1] rounded-[20px] p-5 flex items-center gap-4 text-left hover:border-brand-primary/40 hover:-translate-y-1 hover:shadow-[0_20px_40px_-15px_rgba(0,0,0,0.15)] transition-all duration-300">
-                    <img src="img/evento-online-ao-vivo.webp" alt="Condição especial da Pós" class="w-24 h-24 rounded-xl object-cover shrink-0">
+                    <div class="w-16 h-16 rounded-xl bg-brand-primary/15 border border-brand-primary/30 flex items-center justify-center text-brand-primary text-2xl shrink-0"><i class="fas fa-broadcast-tower"></i></div>
                     <div>
                         <p class="font-bold text-[12px] tracking-[0.12em] text-brand-primary uppercase mb-2">Bônus 03</p>
                         <h3 class="font-extrabold text-lg text-brand-ink mb-2 leading-snug">Condição especial da Pós</h3>
@@ -392,11 +393,11 @@
     </section>
 
     <!-- ANDRÉ -->
-    <section class="relative py-24">
+    <section class="relative pt-24">
         <div class="container mx-auto px-6 max-w-[1300px]">
             <div class="grid lg:grid-cols-5 gap-8 items-center" data-aos="fade-up">
-                <div class="lg:col-span-2">
-                    <img src="img/Andre-site-2.png" alt="André Albuquerque" class="rounded-3xl border border-white/10 w-full h-[380px] object-cover">
+                <div class="lg:col-span-2 flex justify-center items-end self-stretch">
+                    <img src="img/Sem-Título-5.png" alt="André Albuquerque" class="w-full h-auto md:scale-125 origin-bottom">
                 </div>
                 <div class="lg:col-span-3">
                     <p class="text-brand-primary text-xs font-bold uppercase tracking-[0.2em] mb-3">Quem te espera nesse dia</p>
