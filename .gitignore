@@ -9,3 +9,5 @@ ESPECIAL%2010ANOS.pdf
 .vercel
 .env*
 !.env.example
+node_modules/
+.build-tmp/
